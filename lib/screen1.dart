@@ -8,10 +8,10 @@ class Screen1 extends StatelessWidget {
   Screen1({super.key});
   final _ussernamecontroller = TextEditingController();
   final _passwordcontroller = TextEditingController();
-  final _formkey=GlobalKey<FormState>();
-  static const String fixedussername = 'najla';
- static const String fixedPassword = '1234';
-  @override 
+  final _formkey = GlobalKey<FormState>();
+  static const String fixedussername = 'salu';
+  static const String fixedPassword = '1234';
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 253, 179, 203),
@@ -43,11 +43,10 @@ class Screen1 extends StatelessWidget {
                             ),
                           ),
                           TextFormField(
-                            validator: (value){
-                              if (value==null||value.isEmpty) {
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
                                 return 'value is empty';
-                                
-                              }else{
+                              } else {
                                 return null;
                               }
                             },
@@ -66,11 +65,10 @@ class Screen1 extends StatelessWidget {
                           ),
                           SizedBox(height: 20), // Add some space between fields
                           TextFormField(
-                            validator: (value){
-                              if (value==null||value.isEmpty) {
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
                                 return 'value is empty';
-                                
-                              }else{
+                              } else {
                                 return null;
                               }
                             },
@@ -93,38 +91,38 @@ class Screen1 extends StatelessWidget {
                                   backgroundColor:
                                       MaterialStateProperty.all(Colors.pink)),
                               onPressed: () {
-                                _formkey.currentState!.validate();    
-                                    if (_passwordcontroller.text == fixedPassword && _ussernamecontroller.text == fixedussername) {
-                                // Password is correct, navigateto the next screen
-                                Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                    builder: (context) => screen2(),
-                                  ),
-                                );
-                              } else {
-                                // Password is incorrect, show a SnackBar
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    behavior: SnackBarBehavior.floating,
-                                    margin: const EdgeInsets.all(15),
-                                    backgroundColor:
-                                        const Color.fromARGB(255, 247, 244, 245),
-                                    content: const Text(
-                                      'Incorrect password. Please try again.',
-                                      style: TextStyle(
-                                        color: Colors.pink,
-                                        fontStyle: FontStyle.italic,
-                                        fontSize: 16,
+                                _formkey.currentState!.validate();
+                                if (_passwordcontroller.text == fixedPassword &&
+                                    _ussernamecontroller.text ==
+                                        fixedussername) {
+                                  // Password is correct, navigateto the next screen
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (context) => screen2(),
+                                    ),
+                                  );
+                                } else {
+                                  // Password is incorrect, show a SnackBar
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      behavior: SnackBarBehavior.floating,
+                                      margin: const EdgeInsets.all(15),
+                                      backgroundColor: const Color.fromARGB(
+                                          255, 247, 244, 245),
+                                      content: const Text(
+                                        'Incorrect password. Please try again.',
+                                        style: TextStyle(
+                                          color: Colors.pink,
+                                          fontStyle: FontStyle.italic,
+                                          fontSize: 16,
+                                        ),
+                                      ),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(22),
                                       ),
                                     ),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(22),
-                                    ),
-                                  ),
-                                );
-                              }
-                            
-
+                                  );
+                                }
 
                                 // Navigator.of(context).push(MaterialPageRoute(builder: (ctx){
                                 //   return screen2();
@@ -134,7 +132,8 @@ class Screen1 extends StatelessWidget {
                               child: Text(
                                 'Done',
                                 style: TextStyle(
-                                  color: const Color.fromARGB(255, 237, 232, 234),
+                                  color:
+                                      const Color.fromARGB(255, 237, 232, 234),
                                 ),
                               ))
                         ],

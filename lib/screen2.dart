@@ -1,3 +1,4 @@
+import 'package:anas_apa_/screen3.dart';
 import 'package:anas_apa_/splash.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,8 @@ class screen2 extends StatelessWidget {
               onPressed: () {}, icon: Icon(Icons.favorite_outline_sharp)),
           IconButton(
             onPressed: () {
-              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx)=>Screen()));
+              Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (ctx) => Screen()));
             },
             icon: Icon(Icons.arrow_back_ios_new),
           ),
@@ -39,7 +41,13 @@ class screen2 extends StatelessWidget {
           Expanded(
             child: ListView.separated(
               itemBuilder: (ctx, index) {
-                return ListTile(onTap: (){},
+                return ListTile(
+                  onTap: () {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (ctx) {
+                      return screen3();
+                    }));
+                  },
                   title: Text('Person$index'),
                   subtitle: Text('message$index'),
                   leading: const CircleAvatar(
@@ -61,13 +69,23 @@ class screen2 extends StatelessWidget {
                 );
               },
               itemCount: 40,
-
             ),
           ),
-          
-          ElevatedButton(onPressed: (){
-            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx)=>Screen()));
-          }, child: Text('Logout',style: TextStyle(color: Colors.pink[900],fontSize: 17,fontWeight: FontWeight.w800),))
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (ctx) => Screen()));
+                },
+                child: Text(
+                  'Logout',
+                  style: TextStyle(
+                      color: Colors.pink[900],
+                      fontSize: 17,
+                      fontWeight: FontWeight.w800),
+                )),
+          )
         ],
       ),
     );

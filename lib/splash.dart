@@ -14,22 +14,23 @@ class _ScreenState extends State<Screen> {
     splash();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Image.asset('assets/images/wp4667555.webp',width: double.infinity,),
+        child: Image.asset(
+          'assets/images/wp4667555.webp',
+          width: double.infinity,
+        ),
       ),
     );
   }
-  splash()async{
+
+  splash() async {
     await Future.delayed(Duration(seconds: 3));
-    Navigator.of(context).push(MaterialPageRoute(builder: (ctx){
+    Navigator.of(context).push(MaterialPageRoute(builder: (ctx) {
       return Screen1();
     }));
   }
-
-
-    
-  
 }
